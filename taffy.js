@@ -1387,13 +1387,15 @@ var TAFFY, exports, T;
             }
           });
           if ( hasChange ){
+            //更新数据库
+            TOb[ID[id]] = nr;
+            DBI.dm( new Date() );
+            //调用回调函数
             if ( settings.onUpdate &&
               (runEvent || TAFFY.isUndefined( runEvent )) )
             {
-              settings.onUpdate.call( nr, TOb[ID[id]], tc );
+              settings.onUpdate.call( nr, or, tc );
             }
-            TOb[ID[id]] = nr;
-            DBI.dm( new Date() );
           }
         },
         remove       : function ( id ) {
