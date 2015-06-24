@@ -1406,6 +1406,9 @@ var TAFFY, exports, T;
           // **************************************** 
           TOb[ID[id]].___s = false;
         },
+        triggerOnremove : function() {
+          settings.onRemove.call();
+        },
         removeCommit : function ( runEvent ) {
           var x;
           // ****************************************
@@ -1654,6 +1657,10 @@ var TAFFY, exports, T;
 
         obj[key] = finalSearch;
         return root( obj );
+      };
+
+      root.triggerOnremove = function() {
+        DBI.triggerOnremove();
       };
 
       root.TAFFY = true;
